@@ -82,7 +82,7 @@ function scorerPrompt() {
 function transform() {
       const newPointStructure = {};
       for (let i in oldPointStructure) {
-          oldPointStructure[i].forEach (val => newPointStructure[val] = Number(i)
+          oldPointStructure[i].forEach (val => newPointStructure[val.toLowerCase()] = Number(i)
           )
       }
       return newPointStructure;
@@ -91,8 +91,10 @@ function transform() {
 let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
+   initialPrompt()
+   scorerPrompt()
+   transform()
 
- 
 }
 
 // Don't write any code below this line //
