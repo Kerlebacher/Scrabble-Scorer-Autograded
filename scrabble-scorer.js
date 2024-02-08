@@ -1,6 +1,7 @@
 // This assignment is inspired by a problem on Exercism (https://exercism.org/tracks/javascript/exercises/etl) that demonstrates Extract-Transform-Load using Scrabble's scoring system. 
 
 const input = require("readline-sync");
+let word = "";
 
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
@@ -13,18 +14,18 @@ const oldPointStructure = {
 };
 
 function oldScrabbleScorer(word) {
+   word = initialPrompt().toUpperCase();
 	let letterPoints = "";
- 
-	for (let i = 0; i < word.length; i++) {
- 
-	  for (const pointValue in oldPointStructure) {
+   
+	for (let i = 0; i < 9; i++) {
+ 	  for (const pointValue in oldPointStructure) {
  
 		 if (oldPointStructure[pointValue].includes(word[i])) {
-			letterPoints += console.log(`Points for '${word[i]}': ${pointValue}\n`);
+			letterPoints += `Points for '${word[i]}': ${pointValue}\n`;
 		 }
- 
-	  }
-	}
+     }
+      }
+      console.log(letterPoints);
 	return letterPoints;
  }
 
@@ -32,12 +33,13 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   let word = input.question("Let's play some scrabble! Enter a word:");
-   word = word.toUpperCase();
+   word = input.question("Let's play some scrabble!\n\nEnter a word:");
    return word;
 };
 
-let simpleScorer;
+function simpleScorer(word) {
+
+}
 
 let vowelBonusScorer;
 
@@ -52,8 +54,7 @@ function transform() {};
 let newPointStructure;
 
 function runProgram() {
-   initialPrompt();
-   oldScrabbleScorer();
+     oldScrabbleScorer();
 }
 
 // Don't write any code below this line //
